@@ -3,151 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossplay-Connect</title>
-    <style>
-        /* Resetting default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        
-        nav {
-            background-color: #444;
-            text-align: center;
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 8px 16px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: #555;
-        }
-        
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        
-        .main {
-            float: left;
-            width: 70%;
-            margin-bottom: 20px;
-        }
-        
-        .sidebar {
-            float: right;
-            width: 30%;
-            background: #f4f4f4;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .section {
-            clear: both;
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Crossplay Connect</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <h1>Crossplay-Connect</h1>
-        <p>Your Hub for Gaming News and Community</p>
+    <header class="bg-slate-900">
+        <h1 class="text-5xl text-white py-5">Crossplay <span class="font-bold underline">Connect</span></h1>
     </header>
+
+    <!--https://tailwindflex.com/@anonymous/hero-section-with-a-gradient-background-->
     
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#about">About Us</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section class="main" id="home">
-            <div class="section">
-                <h2>Welcome to Crossplay-Connect!</h2>
-                <p>Welcome to Crossplay-Connect, your ultimate source for gaming news, reviews, and more.</p>
-            </div>
-        </section>
-        
-        <aside class="sidebar">
-            <div class="section" id="games">
-                <h2>Games</h2>
-                <p>Explore our collection of exciting games. Find your next favorite game here!</p>
-            </div>
-            
-            <div class="section" id="news">
-                <h2>News</h2>
-                <p>Stay updated with the latest news and happenings in the gaming industry.</p>
-            </div>
-            
-            <div class="section" id="reviews">
-                <h2>Reviews</h2>
-                <p>Read reviews of popular games and make informed decisions before playing.</p>
-            </div>
-            
-            <div class="section" id="videos">
-                <h2>Videos</h2>
-                <p>Watch gameplay videos, trailers, and tutorials to enhance your gaming experience.</p>
-            </div>
-            
-            <div class="section" id="about">
-                <h2>About Us</h2>
-                <p>Learn more about our team, mission, and why we're passionate about gaming.</p>
-            </div>
-        </aside>
+    <div class="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Two pairs of hands holding playstation controllers" class="object-cover object-center w-full h-full" />
+          <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
-    
-    <footer>
+
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
+        <h1 class="text-5xl font-bold leading-tight mb-4">Game with friends, no matter the platform</h1>
+        <p class="text-lg text-gray-300 mb-8">Discover trending games you can play with friends</p>
+        <a href="#" class="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a>
+      </div>
+    </div>
+
+    <footer class="bg-slate-900">
         <p>&copy; 2024 Crossplay-Connect. All rights reserved.</p>
     </footer>
 </body>
