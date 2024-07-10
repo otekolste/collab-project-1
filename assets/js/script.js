@@ -1,8 +1,11 @@
 // script.js
 
-document.addEventListener('DOMContentLoaded', function() {
-    const youtubeApiKey =   
-    const igdbApiKey =  
+let rawgKey = 'b618359b01914cd7acce5ef9812e9759';
+
+/*
+//document.addEventListener('DOMContentLoaded', function() {
+ //   const youtubeApiKey =   
+    const igdbApiKey =  'ijhnqf2cq2uab1iyyrrqykta1sd29n';
 
     // Function to fetch data and update the DOM
     function fetchData(url, containerId, transformData, errorMessage) {
@@ -62,18 +65,17 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(igdbApiUrl, {
             method: 'POST',
             headers: {
-                'Client-ID': 'YOUR_TWITCH_CLIENT_ID',  
                 'Authorization': `Bearer ${igdbApiKey}`,
+                'Client-ID': '5srdgcaqlr4evofnffltz551hkuswp',
                 'Content-Type': 'text/plain'
             },
-            body: 'fields name,summary,cover.url; limit 5;'  
+            body: 'fields name,summary,cover.url, platform; where game.platforms = 48; limit 5;'  
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            console.log(response.json());
             return response.json();
         })
+        /*
         .then(data => {
             const container = document.getElementById('igdbContainer');
             if (container) {
@@ -92,14 +94,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error(`Container with id "igdbContainer" not found`);
             }
         })
-        .catch(error => {
-            console.error('Fetch error:', error);
-            const container = document.getElementById('igdbContainer');
-            if (container) {
-                container.innerHTML = '<p>Sorry, something went wrong with IGDB API.</p>';
-            }
-        });
+            
+
     }
 
-    // Fetch data from APIs
-    fetchData('https://api.exam
+*/
+
+// TODO: use form input to get platform IDs, then pass them into the query parameters
+
+    function fetchRawgData(){
+        const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
+
+        fetch(rawgURL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log("Error: " + error);
+        })
+    }
+
+    $(document).ready(function(){
+        $("#formButton").click(fetchRawgData());
+    })
+
+
+
