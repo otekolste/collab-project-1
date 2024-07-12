@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highly Rated Games</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
     <header>
-        <div class="container>
+        <div class="container">
             <h1>Highly Rated Games</h1>
             <p>Discover the best games of all time based on user ratings and reviews.</p>
             <div class="search-container">
@@ -49,6 +51,13 @@
                 </article>
             </section>
         </div>
+        <div>
+            <ul id="listOfGames">
+                <h1>Games</h1>
+    
+            </ul>
+        </div>
+
     </main>
     <footer>
         <div class="container">
@@ -67,5 +76,8 @@
             <p><strong>Description:</strong> <span id="modalDescription"></span></p>
         </div>
     </div>
+
+    <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
