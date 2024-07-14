@@ -5,6 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crossplay-Connect</title>
     <style>
+        /*Adding Modal*/
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.63);
+        }
+
+        .modal-content {
+            background-color: #e8eded;
+             margin: 15% auto;
+             padding: 20px;
+             border: 1px solid #919191;
+             width: 40%;
+             height: 45%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+
+        form {
+           display: flex;
+            flex-direction: column;
+        }
+
+        .platform-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        .platform-container div {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .left-platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 45%; 
+            float: left;
+            margin-right: 5%;
+            border-radius: 10px;
+         }
+        
+        .right-platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 45%;
+            float: right;
+            margin-left: 55%;
+            margin-top: -15%;
+            border-radius: 6px;
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }       
+
+        button {
+         padding: 10px 20px;
+         margin: 10px;
+        }
+
+        .close {
+            color: #555;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            margin-left: 600px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content input[type="submit"] {
+            align-self: center;
+            margin-right: 375px;
+            margin-top: 50px;
+            border-radius: 5px;
+            width: 80px;
+            height: 50px;
+            background-color: #444;
+            text-shadow: #444;
+            color: #f4f4f4;
+        }
+        
         /* Resetting default styles */
         * {
             margin: 0;
@@ -95,6 +209,38 @@
     </style>
 </head>
 <body>
+
+    <button onclick="openModal()">Select your platform</button>
+
+    <div id="myModal" class="modal">
+    
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select your platform:</h2>
+            <form>
+            <div class="left-platform">
+                <label for="platform1">Platform 1</label><br>
+                <select id="platform1" name="platform1">
+                    <option value="platform2_option1">Playstation</option>
+                    <option value="platform2_option2">Xbox</option>
+                    <option value="platform2_option3">Switch</option>
+                    <option value="platform2_option4">PC</option>
+                </select>
+            </div>
+            <div class="right-platform">
+                <label for="platform2">Platform 2</label><br>
+                <select id="platform2" name="platform2">
+                    <option value="platform2_option1">Playstation</option>
+                    <option value="platform2_option2">Xbox</option>
+                    <option value="platform2_option3">Switch</option>
+                    <option value="platform2_option4">PC</option>
+                </select>
+                <div class="submit">
+                <input type="submit" value="Submit">
+             </div>
+         </div>
+        </div>
+     </div>
     <header>
         <h1>Crossplay-Connect</h1>
         <p>Your Hub for Gaming News and Community</p>
@@ -150,5 +296,23 @@
     <footer>
         <p>&copy; 2024 Crossplay-Connect. All rights reserved.</p>
     </footer>
+
+    <script>
+        var modal = document.getElementById('myModal');
+    
+        function openModal() {
+            modal.style.display = 'block';
+        }
+    
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    
+        window.onclick = function(event) {
+            if(event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+     </script>   
 </body>
 </html>
