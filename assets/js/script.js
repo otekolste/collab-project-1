@@ -4,6 +4,16 @@ let rawgKey = 'b618359b01914cd7acce5ef9812e9759';
 
 let gamesData = [];
 
+    function handleFormSubmit(){
+        const rawgPlatformsURL = `https://api.rawg.io/api/platformskey=${rawgKey}`
+        fetch(rawgPlatformsURL)
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+        })
+    }
 
 // TODO: use form input to get platform IDs, then pass them into the query parameters
 
@@ -49,9 +59,11 @@ let gamesData = [];
 
 
     $(document).ready(function(){
-        fetchRawgData();
+     //   fetchRawgData();
+     handleFormSubmit();
 
      //   fetchYoutubeData();
+     $("#submitButton").click(handleFormSubmit);
     })
 
 
