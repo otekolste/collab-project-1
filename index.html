@@ -8,209 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-        /*Adding Modal*/
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.63);
-        }
 
-        .modal-content {
-            background-color: #e8eded;
-             margin: 15% auto;
-             padding: 20px;
-             border: 1px solid #919191;
-             width: 40%;
-             height: 45%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            border-radius: 10px;
-        }
-
-        form {
-           display: flex;
-            flex-direction: column;
-        }
-
-        .platform-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100vh;
-        }
-
-        .platform-container div {
-            flex: 1;
-            margin-right: 10px;
-        }
-
-        .left-platform {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 45%; 
-            float: left;
-            margin-right: 5%;
-            border-radius: 10px;
-         }
-        
-        .right-platform {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 45%;
-            float: right;
-            margin-left: 55%;
-            margin-top: -15%;
-            border-radius: 6px;
-        }
-
-        select {
-            width: 80%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }       
-
-        button {
-         padding: 10px 20px;
-         margin: 10px;
-        }
-
-        .close {
-            color: #555;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            margin-left: 600px;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-content input[type="submit"] {
-            align-self: center;
-            margin-right: 375px;
-            margin-top: 50px;
-            border-radius: 5px;
-            width: 80px;
-            height: 50px;
-            background-color: #444;
-            text-shadow: #444;
-            color: #f4f4f4;
-        }
-        
-        /* Resetting default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        
-        nav {
-            background-color: #444;
-            text-align: center;
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 8px 16px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: #555;
-        }
-        
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        
-        .main {
-            float: left;
-            width: 70%;
-            margin-bottom: 20px;
-        }
-        
-        .sidebar {
-            float: right;
-            width: 30%;
-            background: #f4f4f4;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .section {
-            clear: both;
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 
 
@@ -240,9 +38,9 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                     <div class="flex mt-8">
-                        <button  id="formButton" class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">
+                        <a href="games.html" class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">
                             Look for games
-                        </button>
+                        </a>
                         <a href="#" class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-violet-800 text-violet-800 dark:text-white hover:bg-violet-600 hover:text-white text-md">
                             View Wishlist
                         </a>
@@ -254,26 +52,6 @@
             </div>
         </div>
     </main>
-
-    
-
-    <script>
-        var modal = document.getElementById('myModal');
-    
-        function openModal() {
-            modal.style.display = 'block';
-        }
-    
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-    
-        window.onclick = function(event) {
-            if(event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-     </script>   
 
 </body>
 </html>
