@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossplay-Connect</title>
+    <title>Crossplay Connect</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         /*Adding Modal*/
         .modal {
@@ -208,94 +212,50 @@
         }
     </style>
 </head>
+
+
+
 <body>
-
-    <button onclick="openModal()">Select your platform</button>
-
-    <div id="myModal" class="modal">
-    
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Select your platform:</h2>
-            <form>
-            <div class="left-platform">
-                <label for="platform1">Platform 1</label><br>
-                <select id="platform1" name="platform1">
-                    <option value="platform2_option1">Playstation</option>
-                    <option value="platform2_option2">Xbox</option>
-                    <option value="platform2_option3">Switch</option>
-                    <option value="platform2_option4">PC</option>
-                </select>
+    <!--https://tailwindflex.com/@prem/product-page -->
+    <main class="relative overflow-hidden h-screen">
+        <header class="bg-white h-24 sm:h-32 flex items-center z-30 w-full">
+            <div class="container mx-auto px-6 flex items-center justify-between">
+                <div class="uppercase text-gray-800 dark:text-white font-black text-5xl">
+                    Crossplay Connect
+                </div>
             </div>
-            <div class="right-platform">
-                <label for="platform2">Platform 2</label><br>
-                <select id="platform2" name="platform2">
-                    <option value="platform2_option1">Playstation</option>
-                    <option value="platform2_option2">Xbox</option>
-                    <option value="platform2_option3">Switch</option>
-                    <option value="platform2_option4">PC</option>
-                </select>
-                <div class="submit">
-                <input type="submit" value="Submit">
-             </div>
-         </div>
+        </header>
+        <div class="white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+            <div class="container mx-auto px-6 flex relative py-16">
+                <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+                    <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+                    </span>
+                    <h1 class="font-bebas-neue uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                        Game with friends
+                        <span class="text-2xl sm:text-5xl">
+                            No matter the platform
+                        </span>
+                    </h1>
+                    <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="flex mt-8">
+                        <button  id="formButton" class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">
+                            Look for games
+                        </button>
+                        <a href="#" class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-violet-800 text-violet-800 dark:text-white hover:bg-violet-600 hover:text-white text-md">
+                            View Wishlist
+                        </a>
+                    </div>
+                </div> <!--Image sourced from Undraw.cxom-->
+                <div class="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+                    <img src="./assets/images/undraw_gaming_re_cma2.svg" class="m-auto"/>
+                </div>
+            </div>
         </div>
-     </div>
-    <header>
-        <h1>Crossplay-Connect</h1>
-        <p>Your Hub for Gaming News and Community</p>
-    </header>
+    </main>
+
     
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#about">About Us</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section class="main" id="home">
-            <div class="section">
-                <h2>Welcome to Crossplay-Connect!</h2>
-                <p>Welcome to Crossplay-Connect, your ultimate source for gaming news, reviews, and more.</p>
-            </div>
-        </section>
-        
-        <aside class="sidebar">
-            <div class="section" id="games">
-                <h2>Games</h2>
-                <p>Explore our collection of exciting games. Find your next favorite game here!</p>
-            </div>
-            
-            <div class="section" id="news">
-                <h2>News</h2>
-                <p>Stay updated with the latest news and happenings in the gaming industry.</p>
-            </div>
-            
-            <div class="section" id="reviews">
-                <h2>Reviews</h2>
-                <p>Read reviews of popular games and make informed decisions before playing.</p>
-            </div>
-            
-            <div class="section" id="videos">
-                <h2>Videos</h2>
-                <p>Watch gameplay videos, trailers, and tutorials to enhance your gaming experience.</p>
-            </div>
-            
-            <div class="section" id="about">
-                <h2>About Us</h2>
-                <p>Learn more about our team, mission, and why we're passionate about gaming.</p>
-            </div>
-        </aside>
-    </div>
-    
-    <footer>
-        <p>&copy; 2024 Crossplay-Connect. All rights reserved.</p>
-    </footer>
 
     <script>
         var modal = document.getElementById('myModal');
@@ -314,5 +274,6 @@
             }
         }
      </script>   
+
 </body>
 </html>
