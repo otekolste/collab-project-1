@@ -16,16 +16,19 @@ let gamesData = [];
             console.log(response);
             plat1 = $('#platform1 option:selected').text()
             plat2 = $('#platform2 option:selected').text()
-            console.log(plat1);
-
-            console.log(response["results"]);
 
             index1 = response["results"].findIndex((element) => element.name == plat1);
             index2 = response["results"].findIndex((element) => element.name == plat2);
 
             let platformsString = `${response["results"][index1].id}&platforms=${response["results"][index2].id}`;
-            
-            const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&platforms=${platformsString}&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
+
+            let checked = [];
+            $(".check:checked").each(function() {
+                checked.push($(this).attr('id'));
+            });
+            let genString = checked.join(", ");
+            console.log(genString);
+            const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&platforms=${platformsString}&genres=${genString}&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
             return fetch(rawgURL);
 
         })
@@ -51,16 +54,31 @@ let gamesData = [];
         })
         .catch((error) => {
             console.log("Error: " + error);
-            $('#listOfGames').innerHTML = 'Sorry...there was an error fetching the data!';
+            $('#listOfGames').innerHTML = 'Sorry...there was an error fetching the data: ' + error;
         })
 
     }
 
-// TODO: use form input to get platform IDs, then pass them into the query parameters
 
-    function fetchRawgData(){
-
+    function fetchGenres(){
+        let genreURL = `https://api.rawg.io/api/genres?key=${rawgKey}`;
+        fetch(genreURL)
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            let i = 0;
+            console.log(response);
+            response["results"].forEach((element) => {
+                $("#genreChecklist").append(`
+                    <input type="checkbox" name="genre${i}" value="${element.name}" class="check" id=${element.id}>
+                    <label for="genre${i}">${element.name}</label>
+                    `);
+            })
+        })
     }
+
+
     
     
     function handleButtonClick(event){
@@ -75,10 +93,7 @@ let gamesData = [];
 
 
     $(document).ready(function(){
-     //   fetchRawgData();
-     // handleFormSubmit();
-
-     //   fetchYoutubeData();
+     fetchGenres();
 
      $("#submitButton").on("click", handleFormSubmit);
     })
