@@ -23,7 +23,7 @@ let gamesData = [];
             index1 = response["results"].findIndex((element) => element.name == plat1);
             index2 = response["results"].findIndex((element) => element.name == plat2);
 
-            let platformsString = `${response["results"][index1].id}, ${response["results"][index2].id}`;
+            let platformsString = `${response["results"][index1].id}&platforms=${response["results"][index2].id}`;
             
             const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&platforms=${platformsString}&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
             return fetch(rawgURL);
