@@ -60,33 +60,33 @@
         <button onclick="openModal()">Select your platform</button>
 
         <div id="myModal" class="modal">
-    
             <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Select your platform:</h2>
-                <form>
-                <div class="left-platform">
-                    <label for="platform1">Platform 1</label><br>
-                    <select id="platform1" name="platform1">
-                        <option value="platform2_option1">PlayStation 5</option>
-                        <option value="platform2_option2">Xbox One</option>
-                        <option value="platform2_option3">Nintendo Switch</option>
-                        <option value="platform2_option4">PC</option>
-                    </select>
+                <div class="flex flex-wrap w-full justify-center align-items-center">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 class="text-center text-2xl uppercase">Select your platforms:</h2>
+                        <form class="flex flex-wrap flex-row justify-center text-center w-full max-w-lg">
+                                <div class="platform my-2 w-1/2">
+                                    <label for="platform1">Platform 1</label><br>
+                                    <select id="platform1" name="platform1">
+                                        <option value="platform2_option1">PlayStation 5</option>
+                                        <option value="platform2_option2">Xbox One</option>
+                                        <option value="platform2_option3">Nintendo Switch</option>
+                                        <option value="platform2_option4">PC</option>
+                                    </select>
+                                </div>
+                                <div class="platform my-2 w-1/2">
+                                    <label for="platform2">Platform 2</label><br>
+                                    <select id="platform2" name="platform2">
+                                        <option value="platform2_option1">PlayStation 5</option>
+                                        <option value="platform2_option2">Xbox One</option>
+                                        <option value="platform2_option3">Nintendo Switch</option>
+                                        <option value="platform2_option4">PC</option>
+                                    </select>
+                                </div>
+                            <button id="submitButton" class=" mt-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">Submit</button>
+                        </form> 
+                    </div>
                 </div>
-                <div class="right-platform">
-                    <label for="platform2">Platform 2</label><br>
-                    <select id="platform2" name="platform2">
-                        <option value="platform2_option1">PlayStation 5</option>
-                        <option value="platform2_option2">Xbox One</option>
-                        <option value="platform2_option3">Nintendo Switch</option>
-                        <option value="platform2_option4">PC</option>
-                    </select>
-                    <div class="submit">
-                    <button id="submitButton">Submit</button>
-                 </div>
-             </div>
-            </div>
          </div>
 
         <div>

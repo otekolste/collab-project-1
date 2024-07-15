@@ -54,28 +54,6 @@ form {
     margin-right: 10px;
 }
 
-.left-platform {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 45%; 
-    float: left;
-    margin-right: 5%;
-    border-radius: 10px;
- }
-
-.right-platform {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    float: right;
-    margin-left: 55%;
-    margin-top: -15%;
-    border-radius: 6px;
-}
 
 select {
     width: 80%;
