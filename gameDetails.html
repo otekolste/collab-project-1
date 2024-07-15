@@ -1,31 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Crossplay Connect</title>
-        <link rel="stylesheet" href="./assets/css/reset.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    </head>
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossplay Connect</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Custom styles for modal */
+        .modal {
+            display: none; /* Hidden by default */
+        }
+        
+        .modal.show {
+            display: block; /* Show modal */
+        }
 
-    <main>
-        <header class="bg-white h-24 sm:h-32 flex items-center z-30 w-full">
+        /* Modal Overlay */
+        .modal-overlay {
+            @apply fixed inset-0 bg-black bg-opacity-50;
+        }
+
+        /* Customize modal content */
+        .modal-content {
+            @apply bg-white rounded-lg p-6 w-full max-w-lg relative transition-transform duration-300 ease-out;
+        }
+
+        /* Customize close button */
+        .close-button {
+            @apply text-2xl text-gray-600 cursor-pointer;
+        }
+
+        .close-button:hover {
+            @apply text-gray-800;
+        }
+
+        .close-button:focus {
+            @apply ring-2 ring-gray-300;
+        }
+
+        /* Button styles for modal submit */
+        .modal-submit {
+            @apply bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300;
+        }
+
+        /* Reset styles */
+        .platform-container {
+            @apply flex flex-col justify-center items-center min-h-screen;
+        }
+
+        .left-platform, .right-platform {
+            @apply flex flex-col items-center justify-center w-full max-w-md mx-4 my-2 p-6 bg-white shadow-lg rounded-lg;
+        }
+
+        .left-platform {
+            @apply bg-violet-100;
+        }
+
+        .right-platform {
+            @apply bg-violet-50;
+        }
+
+        select {
+            @apply w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-800;
+        }
+
+        .button-container {
+            @apply text-center mt-4;
+        }
+
+        button {
+            @apply py-2 px-4 mx-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300;
+        }
+
+        .close {
+            @apply text-xl text-gray-600 cursor-pointer float-right;
+        }
+
+        .close:hover {
+            @apply text-gray-800;
+        }
+
+        .close:focus {
+            @apply ring-2 ring-gray-300;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <main class="relative overflow-hidden h-screen bg-gray-50">
+        <header class="bg-white shadow-md h-24 sm:h-32 flex items-center z-30 w-full">
             <div class="container mx-auto px-6 flex items-center justify-between">
-                <div class="uppercase text-gray-800 dark:text-white font-black text-5xl">
+                <div class="text-gray-800 font-black text-5xl uppercase">
                     Crossplay Connect
                 </div>
             </div>
         </header>
 
-        <div>
-            <h1 id="gameTitle" class="text-3xl"></h1>
-            <div id="player"></div>
+        <div class="platform-container">
+            <div class="left-platform">
+                <h2 class="text-2xl font-bold mb-4">Find a Game</h2>
+                <form>
+                    <label for="platform1" class="text-lg font-semibold mb-2">Select Your Platform</label>
+                    <select id="platform1" name="platform1" class="mb-4">
+                        <option value="pc">PC</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="playstation">PlayStation</option>
+                        <option value="nintendo">Nintendo</option>
+                        <option value="mobile">Mobile</option>
+                    </select>
+                    <div class="button-container">
+                        <button id="formButton" type="button" class="bg-blue-600 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300">
+                            Find Games
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="right-platform">
+                <h2 class="text-2xl font-bold mb-4">Looking for Games?</h2>
+                <p class="text-center mb-4">Find and play with friends across different platforms!</p>
+                <button id="formButton" type="button" class="bg-blue-600 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300">
+                    Look for Games
+                </button>
+            </div>
         </div>
     </main>
-    <script src="./assets/js/gamesPage.js"></script>
+
+    <!-- Modal for Game Details -->
+    <div id="myModal" class="modal hidden">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2 class="text-2xl font-bold mb-4">Game Details</h2>
+                <form>
+                    <label for="platform2" class="block text-lg font-semibold mb-2">Select Your Platform</label>
+                    <select id="platform2" name="platform2" class="mb-4">
+                        <option value="pc">PC</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="playstation">PlayStation</option>
+                        <option value="nintendo">Nintendo</option>
+                        <option value="mobile">Mobile</option>
+                    </select>
+                    <input type="submit" value="Submit" class="modal-submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('formButton');
+        var span = document.getElementsByClassName('close-button')[0];
+
+        btn.onclick = function() {
+            modal.classList.add('show');
+        }
+
+        span.onclick = function() {
+            modal.classList.remove('show');
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove('show');
+            }
+        }
+    </script>
 
 </body>
 </html>
