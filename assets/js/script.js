@@ -4,24 +4,32 @@ let rawgKey = 'b618359b01914cd7acce5ef9812e9759';
 
 let gamesData = [];
 
-    function handleFormSubmit(){
-        const rawgPlatformsURL = `https://api.rawg.io/api/platformskey=${rawgKey}`
+    function handleFormSubmit(event){
+        event.preventDefault();
+        $("#myModal").css("display", "none");
+        const rawgPlatformsURL = `https://api.rawg.io/api/platforms?key=${rawgKey}`
         fetch(rawgPlatformsURL)
         .then((response) => {
             return response.json();
         })
         .then((response) => {
             console.log(response);
+            plat1 = $('#platform1 option:selected').text()
+            plat2 = $('#platform2 option:selected').text()
+            console.log(plat1);
+
+            console.log(response["results"]);
+
+            index1 = response["results"].findIndex((element) => element.name == plat1);
+            index2 = response["results"].findIndex((element) => element.name == plat2);
+
+            let platformsString = `${response["results"][index1].id}&platforms=${response["results"][index2].id}`;
+            
+            const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&platforms=${platformsString}&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
+            return fetch(rawgURL);
+
         })
-    }
-
-// TODO: use form input to get platform IDs, then pass them into the query parameters
-
-    function fetchRawgData(){
-        const rawgURL = `https://api.rawg.io/api/games?tags=cross-platform-multiplayer&page=1&page_size=15&ordering=-rating&key=${rawgKey}`
-
-        fetch(rawgURL)
-        .then(function(response) {
+        .then((response) => {
             return response.json();
         })
         .then((response) => {
@@ -38,12 +46,20 @@ let gamesData = [];
             }
             $('.gameButton').on('click', handleButtonClick);
             gamesData = response;
-        //    localStorage.setItem('gameInfo', JSON.stringify(response["results"][0]));
+        //    localStorage.setItem('gameInfo', JSON.stringify(response["results"][0]));            
 
         })
         .catch((error) => {
             console.log("Error: " + error);
+            $('#listOfGames').innerHTML = 'Sorry...there was an error fetching the data!';
         })
+
+    }
+
+// TODO: use form input to get platform IDs, then pass them into the query parameters
+
+    function fetchRawgData(){
+
     }
     
     
@@ -60,10 +76,11 @@ let gamesData = [];
 
     $(document).ready(function(){
      //   fetchRawgData();
-     handleFormSubmit();
+     // handleFormSubmit();
 
      //   fetchYoutubeData();
-     $("#submitButton").click(handleFormSubmit);
+
+     $("#submitButton").on("click", handleFormSubmit);
     })
 
 
