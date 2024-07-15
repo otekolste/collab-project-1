@@ -47,6 +47,7 @@ function fetchYoutubeData(){
     
     .catch((error) => {
         console.log("Error fetching YT data: " + error)
+        $("#errorMessage").innerHTML('There was an error embedding the YouTube video player.');
     })
 }
 
