@@ -12,10 +12,6 @@
 
 </head>
 <body>
-    <div id="wishlistInput">
-        <input type="text" id="gameNameInput" placeholder="Enter the game name">
-        <button onclick="addToWishlistFromInput()">Add to Wishlist</button>
-    </div>
     <header class="bg-white h-24 sm:h-32 flex items-center z-30 w-full">
         <div class="container mx-auto px-6 flex items-center justify-between">
             <div class="uppercase text-gray-800 dark:text-white font-black text-5xl">
@@ -27,41 +23,9 @@
         </div>
     </header>
     <main>
-        <!--
-        <div class="container">
-            <section class="game-list">
-                <article class="game-item" data-game="Game Title 1">
-                    <img src="images/game1.jpg" alt="Game 1">
-                    <h2>Game Title 1</h2>
-                    <p class="game-genre">Genre: Action RPG</p>
-                    <p class="game-year">Release Year: 2023</p>
-                    <p class="game-rating">Rating: 9.5/10</p>
-                    <p class="game-description">A brief description of Game Title 1.</p>
-                    <button class="details-button" data-title="Game Title 1" data-year="2023" data-genre="Action RPG" data-rating="9.5" data-description="A brief description of Game Title 1.">More Details</button>
-                </article>
-                <article class="game-item" data-game="Game Title 2">
-                    <img src="images/game2.jpg" alt="Game 2">
-                    <h2>Game Title 2</h2>
-                    <p class="game-genre">Genre: Puzzle Platformer</p>
-                    <p class="game-year">Release Year: 2022</p>
-                    <p class="game-rating">Rating: 9.2/10</p>
-                    <p class="game-description">A brief description of Game Title 2.</p>
-                    <button class="details-button" data-title="Game Title 2" data-year="2022" data-genre="Puzzle Platformer" data-rating="9.2" data-description="A brief description of Game Title 2.">More Details</button>
-                </article>
-                <article class="game-item" data-game="Game Title 3">
-                    <img src="images/game3.jpg" alt="Game 3">
-                    <h2>Game Title 3</h2>
-                    <p class="game-genre">Genre: Strategy</p>
-                    <p class="game-year">Release Year: 2021</p>
-                    <p class="game-rating">Rating: 9.0/10</p>
-                    <p class="game-description">A brief description of Game Title 3.</p>
-                    <button class="details-button" data-title="Game Title 3" data-year="2021" data-genre="Strategy" data-rating="9.0" data-description="A brief description of Game Title 3.">More Details</button>
-                </article>
-            </section>
+        <div class="mx-auto w-full text-center my-5">
+            <button class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-3xl hover:bg-violet-600" onclick="openModal()">Select your platform</button>
         </div>
-        -->
-
-        <button onclick="openModal()">Select your platform</button>
 
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -90,16 +54,14 @@
                                 <div id="genreChecklist">
                                     <h2 class="text-center text-2xl uppercase">Select some genres:</h2>
                                 </div>
-                            <button id="submitButton" class=" mt-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">FIND GAMES</button>
+                            <button id="submitButton" class=" my-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">FIND GAMES</button>
                         </form> 
                     </div>
                 </div>
          </div>
 
         <div>
-            <ul id="listOfGames">
-                <h1>Games</h1>
-    
+            <ul id="listOfGames" class="text-center text-xl mb-5">    
             </ul>
         </div>
 
