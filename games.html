@@ -12,6 +12,10 @@
 
 </head>
 <body>
+    <div id="wishlistInput">
+        <input type="text" id="gameNameInput" placeholder="Enter the game name">
+        <button onclick="addToWishlistFromInput()">Add to Wishlist</button>
+    </div>
     <header class="bg-white h-24 sm:h-32 flex items-center z-30 w-full">
         <div class="container mx-auto px-6 flex items-center justify-between">
             <div class="uppercase text-gray-800 dark:text-white font-black text-5xl">
@@ -104,6 +108,20 @@
         
 
     <script>
+
+function addToWishlistFromInput() {
+    var gameName = document.getElementById('gameNameInput').value;
+    if (gameName.trim() !== '') {
+
+        localStorage.setItem('enteredGameName', gameName);
+        
+      
+        window.location.href = `wishlist.html?game=${gameName}`;
+    } else {
+        alert('Please enter a valid game name.');
+    }
+}
+
         var modal = document.getElementById('myModal');
     
         function openModal() {
