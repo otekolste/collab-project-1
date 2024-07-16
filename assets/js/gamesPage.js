@@ -15,6 +15,7 @@ function renderGameDetails(){
         $('#gameTitle').innerHTML = "Whoops...there was an issue loading the info!"
     }
     else{
+      console.log(info);
         $('#gameTitle').text(info.name);
 
         fetchYoutubeData();
@@ -88,7 +89,6 @@ function onYouTubeIframeAPIReady() {
 $(document).ready(function(){
 
     info = JSON.parse(localStorage.getItem('gameInfo'));
-
 
     renderGameDetails();
  //   fetchYoutubeData();
