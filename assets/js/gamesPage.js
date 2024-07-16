@@ -6,6 +6,8 @@ let player = $('#player');
 
 let info = [];
 
+let wishlist = [];
+
 let videoId = '';
 
 
@@ -86,10 +88,35 @@ function onYouTubeIframeAPIReady() {
         player.stopVideo();
       }
 
+      function handleAddWishlist(event) {
+        event.preventDefault();
+        console.log(wishlist);
+        const game = wishlist.find(function(element) {
+          return element.id == info.id;
+        });
+        if(!game) {
+          wishlist.push(info);
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        window.location.href = 'wishlist.html';
+
+
+      }
+
 $(document).ready(function(){
 
     info = JSON.parse(localStorage.getItem('gameInfo'));
 
+
+    let storedList = JSON.parse(localStorage.getItem('wishlist'));
+
+    if(storedList!=null) {
+      wishlist = storedList;
+    }
+
     renderGameDetails();
+
+    $('#wishlistButton').on('click', handleAddWishlist);
  //   fetchYoutubeData();
 })
