@@ -13,38 +13,42 @@ let videoId = '';
 
 
 function renderGameDetails(){
-    if(info == null) {
-        $('#gameTitle').innerHTML = "Whoops...there was an issue loading the info!"
+    if(info == null) { // Checks if local array is null
+        $('#gameTitle').innerHTML = "Whoops...there was an issue loading the info!" // Displays error message if nothing is found
     }
     else{
       console.log(info);
-        $('#gameTitle').text(info.name);
+        $('#gameTitle').text(info.name); // Display title
 
-        let genString = info.genres.map((gen) => `${gen.name}`).join(", ");
+        let genString = info.genres.map((gen) => `${gen.name}`).join(", "); // String-ifies list of genres
 
+        // Appends rating and genre info
+        $('#infoContainer').innerHTML = '';
         $('#infoContainer').append(`
           <h1 class="text-xl my-2">Rating: ${info.rating}</h1>
           <h1 class="text-xl my-2">Genres: ${genString}</h1>
 
         `);
 
-        fetchYoutubeData();
+        fetchYoutubeData(); // Searches + embeds video player
 
 
     }
 }
 
+// Code referenced from: https://developers.google.com/youtube/iframe_api_reference
 
 function fetchYoutubeData(){
-    let searchString = (info.name.replaceAll(' ','+')).concat('+trailer');
+    let searchString = (info.name.replaceAll(' ','+')).concat('+trailer'); // Creates a fetch request based on title of game + the word trailer
     const ytURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchString}&maxResults=1&type=video&videoEmbeddable=true&key=${ytKey}`
     fetch(ytURL)
     .then((response) => {
-        return response.json();
+        return response.json(); // converts response to JSON
 
     })
-    .then((response) => {
+    .then((response) => { 
         console.log(response);
+      // This code loads the IFrame Player API code asynchronously.
 
         var tag = document.createElement('script');
 
@@ -62,6 +66,9 @@ function fetchYoutubeData(){
     })
 }
 
+      // This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
@@ -77,12 +84,12 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-      // 4. The API will call this function when the video player is ready.
+      // The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.playVideo();
       }
 
-      // 5. The API calls this function when the player's state changes.
+      //  The API calls this function when the player's state changes.
       //    The function indicates that when playing a video (state=1),
       //    the player should play for six seconds and then stop.
       var done = false;
@@ -96,34 +103,35 @@ function onYouTubeIframeAPIReady() {
         player.stopVideo();
       }
 
+      // Function to add a game to wishlist
       function handleAddWishlist(event) {
         event.preventDefault();
-        console.log(wishlist);
-        const game = wishlist.find(function(element) {
+     //   console.log(wishlist);
+        const game = wishlist.find(function(element) { // Checks if game is already in wishlist
           return element.id == info.id;
         });
         if(!game) {
-          wishlist.push(info);
-          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+          wishlist.push(info); // Adds array of game data to wishlist
+          localStorage.setItem('wishlist', JSON.stringify(wishlist)); // Updates local storage array 
         }
 
-        window.location.href = 'wishlist.html';
+        window.location.href = 'wishlist.html'; // Redirects to wishlist page
 
 
       }
 
 $(document).ready(function(){
 
-    info = JSON.parse(localStorage.getItem('gameInfo'));
+    info = JSON.parse(localStorage.getItem('gameInfo')); // Retrieves game info from local storage
 
 
-    let storedList = JSON.parse(localStorage.getItem('wishlist'));
+    let storedList = JSON.parse(localStorage.getItem('wishlist')); // Retrieves wishlist info from local storage
 
-    if(storedList!=null) {
+    if(storedList!=null) { // Check if any data exists, and if it does, assigns to local storage
       wishlist = storedList;
     }
 
-    renderGameDetails();
+    renderGameDetails(); // Displays game details
 
     $('#wishlistButton').on('click', handleAddWishlist);
  //   fetchYoutubeData();

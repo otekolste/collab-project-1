@@ -2,11 +2,11 @@ let wishlist = [];
 
 function renderWishlist() {
     if(wishlist==null) {
-        $("#wishlist").innerHTML = 'Sorry...an error occured displaying your wishlist.';
+        $("#wishlist").innerHTML = 'Sorry...an error occured displaying your wishlist.'; // Displays error message
     }
-    $("#wishlist").innerHTML = '';
+    $("#wishlist").innerHTML = ''; // Clears existing HTML, so no duplicates
 
-    wishlist.forEach((game) => {
+    wishlist.forEach((game) => { // Iterates through wishlist and creates a card for each game
         $("#wishlist").append(`
             <div class="max-w-sm rounded overflow-hidden shadow-lg mx-2">
                 <img class="w-full" src="${game.background_image}" alt="Background image for ${game.name}">
@@ -19,8 +19,8 @@ function renderWishlist() {
 
 $(document).ready(function() {
 
-    wishlist = JSON.parse(localStorage.getItem('wishlist'));
+    wishlist = JSON.parse(localStorage.getItem('wishlist')); // Retrieves wishlist data
 
-    renderWishlist();
+    renderWishlist(); // Renders wishlist
 
 });

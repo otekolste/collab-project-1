@@ -10,10 +10,17 @@ In creating this project, we learned about agile development and implementing it
 
 Go [here](https://otekolste.github.io/crossplay-connect) to check it out!
 
-To get started, click "get started." You'll be redirected to a new page. Click the "Select your platform", which will prompt a dialogue window to pop up.
+To get started, click "get started." You'll be redirected to a new page. 
+![Homepage](./assets/images/cc-1.png)
+Click the "Select your platform", which will prompt a dialogue window to pop up.
 Use the drop-down menus to select 2 platforms, then check some boxes to filter your results by genre.
+![The form to input platforms and genre](./assets/images/cc-2.png)
 A list of game titles will then be generated for you! All of the titles will be cross-platform and available on both of the selected platforms; they will also belong to at least one of the selected genres. They will be sorted by rating, starting with the highest.
 Click on a game to be redirected to a new page, which will display details about the game itself, as well as have an embedded trailer that you can watch from the page itself.
+![The page displaying game details](./assets/images/cc-3.png)
+On the bottom of that card, click "add to wishlist." You will be directed to the wishlist page which will contain the game you have just added!
+![Wishlist page](./assets/images/cc-4.png)
+You can repeat this as many times as you would like!
 
 
 ## Credits
@@ -21,6 +28,8 @@ Click on a game to be redirected to a new page, which will display details about
 ### Server-side APIs used:
 
 [YouTube Data API](https://developers.google.com/youtube/v3) for finding and embedding trailers into the webpage
+
+[Youtube iFrame](https://developers.google.com/youtube/iframe_api_reference) referenced for embedding trailers into the webpage (check gamesPage.js for the location of the code)
 
 [RAWG API](https://rawg.io/apidocs) for the video game data
 
