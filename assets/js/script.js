@@ -42,7 +42,7 @@ let gamesData = [];
             for(let i = 0; i<response['results'].length;i++) {
                 $('#listOfGames').append(`
                     <li>
-                        <button class="gameButton">
+                        <button class="gameButton hover:text-blue-500">
                          ${response['results'][i].name} 
                          </button>
                     </li>`);

@@ -23,8 +23,9 @@
         </div>
     </header>
     <main>
-
-        <button onclick="openModal()">Select your platform</button>
+        <div class="mx-auto w-full text-center my-5">
+            <button class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-3xl hover:bg-violet-600" onclick="openModal()">Select your platform</button>
+        </div>
 
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -53,16 +54,14 @@
                                 <div id="genreChecklist">
                                     <h2 class="text-center text-2xl uppercase">Select some genres:</h2>
                                 </div>
-                            <button id="submitButton" class=" mt-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">FIND GAMES</button>
+                            <button id="submitButton" class=" my-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">FIND GAMES</button>
                         </form> 
                     </div>
                 </div>
          </div>
 
         <div>
-            <ul id="listOfGames">
-                <h1>Games</h1>
-    
+            <ul id="listOfGames" class="text-center text-xl mb-5">    
             </ul>
         </div>
 

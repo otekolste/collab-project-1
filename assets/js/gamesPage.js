@@ -20,6 +20,14 @@ function renderGameDetails(){
       console.log(info);
         $('#gameTitle').text(info.name);
 
+        let genString = info.genres.map((gen) => `${gen.name}`).join(", ");
+
+        $('#infoContainer').append(`
+          <h1 class="text-xl my-2">Rating: ${info.rating}</h1>
+          <h1 class="text-xl my-2">Genres: ${genString}</h1>
+
+        `);
+
         fetchYoutubeData();
 
 
