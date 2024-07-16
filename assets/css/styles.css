@@ -131,3 +131,7 @@ button {
 .hidden {
     @apply hidden;
 }
+/* Game Details Page Styles */
+#player {
+    @apply w-full max-w-5xl;
+}
